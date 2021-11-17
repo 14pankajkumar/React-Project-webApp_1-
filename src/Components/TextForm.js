@@ -7,8 +7,23 @@ function TextForm(props) {
   };
 
   const handleLowClick = () => {
-    setText(text.toLowerCase())
-  }
+    setText(text.toLowerCase());
+  };
+
+  const handleClearClick = () => {
+    setText("");
+  };
+
+  const handleCopyClick = () => {
+    let text = document.getElementById("myBox");
+    text.select();
+    navigator.clipboard.writeText(text.value);
+  };
+
+  const handleExtraSpcClick = () => {
+    let newText = text.split(/[ ]+/);
+    setText(newText.join(" "));
+  };
 
   const handleOnChange = (event) => {
     setText(event.target.value);
@@ -29,8 +44,30 @@ function TextForm(props) {
           <button className="btn btn-primary mt-3 mx-1" onClick={handleUpClick}>
             Convert to Uppercase
           </button>
-          <button className="btn btn-primary mt-3 mx-1" onClick={handleLowClick}>
+          <button
+            className="btn btn-primary mt-3 mx-1"
+            onClick={handleLowClick}
+          >
             Convert to Lowecase
+          </button>
+          <button
+            className="btn btn-primary mt-3 mx-1"
+            onClick={handleClearClick}
+          >
+            Clear Text
+          </button>
+          <button
+            className="btn btn-primary mt-3 mx-1"
+            id="myBox"
+            onClick={handleCopyClick}
+          >
+            Copy Text
+          </button>
+          <button
+            className="btn btn-primary mt-3 mx-1"
+            onClick={handleExtraSpcClick}
+          >
+            Remv Extra Spc
           </button>
         </div>
       </div>
