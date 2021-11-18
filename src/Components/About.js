@@ -8,17 +8,20 @@ function About() {
   });
 
   const toggleStyle = () => {
-    myStyle.color === "black"
-      ? setMyStyle({
-          color: "white",
-          backgroundColor: "black",
-          border: "1px solid white"
-        }) || setBtnTxt("Disable Dark Mode")
-      : setMyStyle({
-          color: "black",
-          backgroundColor: "white",
-        });
-    setBtnTxt("Enable Dark Mode");
+    if (myStyle.color === "black") {
+      setMyStyle({
+        color: "white",
+        backgroundColor: "black",
+        border: "1px solid white",
+      });
+      setBtnTxt("Disable Dark Mode");
+    } else {
+      setMyStyle({
+        color: "black",
+        backgroundColor: "white",
+      });
+      setBtnTxt("Enable Dark Mode");
+    }
   };
 
   return (
