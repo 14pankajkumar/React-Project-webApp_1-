@@ -59,7 +59,7 @@ function App() {
         />
         } />
         <Route exact path="/about" element={
-          <About />
+          <About mode={mode} />
         } />
         </Routes>
       </div>
